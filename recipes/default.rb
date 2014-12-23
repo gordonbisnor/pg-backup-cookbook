@@ -4,6 +4,11 @@ backup_model :db do
   description "Back up Postgres to S3"
 
   definition <<-DEF
+    
+    cron_options({
+      path: '#{node['backups']['cron_path']}'
+    })
+    
     split_into_chunks_of 4000
 
     database PostgreSQL do |db|

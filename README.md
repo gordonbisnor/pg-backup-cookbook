@@ -3,19 +3,21 @@ pg-backup-cookbook
 
 Postgres backups to S3
 
+
 Add the following, in the appropriate spots, to nodes/xxx.json
 
     "backups": {
-    	"bucket": "cloud-library-backups"
+    	"bucket": "your bucket name here",
+      "cron_path": "your echo $PATH here"
      },
 
     "aws": {
-      "access_key_id": “xxx”,
-      "secret_access_key": “yyy”
+      "access_key_id": your amazon access key here”,
+      "secret_access_key": your amazon secret access key here”
     },
 
     "postgresql" : {
-	    "database_name": “zzz”
+	    "database_name": your postgres database name here”
 	   }
 
      "run_list": [
