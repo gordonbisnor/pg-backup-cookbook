@@ -8,7 +8,10 @@ Add the following, in the appropriate spots, to nodes/xxx.json
 
     "backups": {
     	"bucket": "your bucket name here",
-      "cron_path": "your echo $PATH here"
+      "command": "/usr/local/rbenv/shims/backup perform --trigger db --config-file /etc/backup/config.rb --log-path=/var/log 2>&1 >> /var/log/backup-cron.log", # or whatever
+      "mailto": "me@email.com",
+      "hour": "*",
+      "minute": "0,15,30,45"
      },
 
     "aws": {

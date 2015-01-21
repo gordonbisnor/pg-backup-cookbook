@@ -3,12 +3,17 @@ include_recipe 'backup'
 backup_model :db do
   description "Back up Postgres to S3"
 
+  schedule({
+    minute: node['backups']['minute']
+    hour: node['backups']['hour']
+  })
+
+  cron_options({
+    mailto: node['backups']['mailto'],
+    command: node['backups']['command']
+  })
+
   definition <<-DEF
-    
-    cron_options({
-      path: '#{node['backups']['cron_path']}'
-    })
-    
     split_into_chunks_of 4000
 
     database PostgreSQL do |db|
@@ -25,8 +30,4 @@ backup_model :db do
     end
   DEF
 
-  schedule({
-    :minute => 0,
-    :hour   => 0
-  })
 end
