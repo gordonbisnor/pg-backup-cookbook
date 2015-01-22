@@ -9,7 +9,8 @@
 		"ubuntu": ">= 0.0.0"
 		},
 	"dependencies":{
-		"backup": ">= 0.0.0"
+		"backup": ">= 0.0.0",
+		"postfix": ">= 0.0.0"
 		},
 	"recommendations": {},
 	"suggestions": {},
@@ -21,6 +22,6 @@
 	"recipes":{
 		"pg-backup": "PG backups"
 		},
-	"version":"0.0.3"
+	"version":"0.0.4"
 }
 
