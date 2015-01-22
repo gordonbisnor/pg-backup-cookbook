@@ -4,7 +4,7 @@ backup_model :db do
   description "Back up Postgres to S3"
 
   schedule({
-    minute: node['backups']['minute']
+    minute: node['backups']['minute'],
     hour: node['backups']['hour']
   })
 
